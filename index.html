@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>Stress Position in German Words</title>
   <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="author" content="SaschaC">
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <link rel="stylesheet" href="./libraries/frameworks/revealjs/css/reveal.min.css">
@@ -19,9 +19,9 @@
     <div class="slides">
       <section class='' data-state='' id='slide-1'>
   <h1>Stress Position in German words</h1>
-  <p>A Shiny app</p>
+  <div>A Shiny app</div>
 
-<p><small>by Sascha C.</small></p>
+<div><small>by Sascha C.</small></div>
 
 </section>
 <section class='' data-state='' id='slide-2'>
@@ -34,65 +34,68 @@
 <li>Pitch</li>
 </ul>
 
-<p>For example, in English &#39;<span style="color:red">Ba</span>by&#39;, the syllable -ba is the most prominent syllable.</p>
+<p>For example, in English &#39;<span class="example"><span class="stress">Ba</span>by</span>&#39;, the syllable <span class="example">-ba</span> is the most prominent syllable.</p>
 
 </section>
 <section class='' data-state='' id='slide-3'>
   <h2>German word stress</h2>
-  <p>In German (and English), stress position varies between words. Examples: <span class="stress">Bei</span>spiel, Zer<span class ="stress">brech</span>lichkeit, unter<span class ="stress">hal</span>ten, kontrol<span class="stress">lie</span>ren</p>
+  <p>In German (and English), stress position varies between words. Examples: <div class="example"><span class="stress">Bei</span>spiel (&#39;example&#39;), Zer<span class ="stress">brech</span>lichkeit (&#39;frailty&#39;), unter<span class ="stress">hal</span>ten (&#39;to converse&#39;), kontrol<span class="stress">lie</span>ren (&#39;to control&#39;)</div></p>
 
-<p>Some <strong>regularities</strong> exist, e.g., most (all?) unprefixed words that are not loan words are stressed on the first syllable.</p>
+<p><br>There are <strong>regularities</strong>, e.g., most (all?) unprefixed words that are not loan words are stressed on the first syllable.</p>
 
-<p>However, the distribution of German word stress is not clear. E.g., how often does stress occur on the second syllable of a word?</p>
+<p><br>However, the distribution of German word stress is not clear. For example, how often does stress occur on the second syllable of a word?</p>
 
 </section>
 <section class='' data-state='' id='slide-4'>
-  <h2>App data base</h2>
-  <p>The data base consists of 44,378 words selected from <a href="https://catalog.ldc.upenn.edu/ldc96l14">CELEX lexical database for German</a>. </p>
-
-<p>The selection criteria were:</p>
-
-<ul>
-<li>Word type = Adjective, Noun, or Verb</li>
-<li>Minimally 2 syllables, maximally 5 syllables</li>
-</ul>
-
-<p>These words were extracted along with information on: </p>
-
-<ul>
-<li>Word frequency</li>
-<li>Syllable number</li>
-<li><span style="border-bottom: dotted 1px blue" title="where position n signifies stress on the nth syllable">Stress position</span></li>
-<li>Word type (Adjective, Noun, Verb)</li>
-</ul>
-
-<p>An excerpt of the app data base can be found <a href="">here</a>.</p>
-
-</section>
-<section class='' data-state='' id='slide-5'>
   <h2>App functionality</h2>
   <p>Research question: How is stress position in German distributed accross words?</p>
 
 <p>Functions:</p>
 
 <ul>
-  <li>Plot word <span style="border-bottom: dotted 1px blue" title="where position n signifies stress on the nth syllable">stress position</span> as a function of <em>word type</em> and <em>syllable number</em>
+  <li>Plot word <span style="border-bottom: dotted 1px blue" title="where position n signifies stress on the nth syllable"><strong>stress position</strong></span> as a function of <strong>word type</strong> and <strong>syllable number</strong>
   <ul>
     <li>Word type: Adjective, Noun, Verb</li>
     <li>Syllable number: from 2 to 5 syllables</li>
   </ul>
-  <li>Control for <em>word frequency</em></li>
+  <li>Control for <strong>word frequency</strong></li>
   <ul>
     <li>For example, restrict analysis to words with a minimal frequency of 1000.</li>
   </ul>
 </ul>
 
 </section>
+<section class='' data-state='' id='slide-5'>
+  <h2>App data base</h2>
+  <p>The <a href="#" title="Excerpt of the database">data base</a> of the app </a> consists of 42,693 words selected from the <a href="https://catalog.ldc.upenn.edu/ldc96l14" target="_blank">CELEX lexical database for German</a>. </p>
+
+<p>Selection criteria: word type = Adjective/Noun/Verb, 2 - 5 syllables long</p>
+
+<pre><code class="r">table(database$wordType, database$syllableNumber)
+</code></pre>
+
+<pre><code>##    
+##        2    3    4    5
+##   A 1882 3752 2377  717
+##   N 7024 9091 6272 2582
+##   V 1972 4784 1655  585
+</code></pre>
+
+<p>Further information in the data base, extracted from CELEX: <strong>word frequency</strong>, <strong>syllable number</strong>, <strong><span style="border-bottom: dotted 1px blue" title="where position n signifies stress the nth syllable">stress position</span></strong>, <strong>word type</strong></p>
+
+</section>
+<section class='' data-state='' id='slide-6'>
+  
+  <p><center><img src="ende.jpg" alt="Spongebob" title="Spongebob"></center></p>
+
+<h1 class=example><span class=example><span class=stress>En</span>de!</h1>
+
+</section>
     </div>
   </div>
 </body>
-  <script src="../libraries/frameworks/revealjs/lib/js/head.min.js"></script>
-  <script src="../libraries/frameworks/revealjs/js/reveal.min.js"></script>
+  <script src="./libraries/frameworks/revealjs/lib/js/head.min.js"></script>
+  <script src="./libraries/frameworks/revealjs/js/reveal.min.js"></script>
   <script>
   // Full list of configuration options available here:
   // https://github.com/hakimel/reveal.js#configuration
@@ -116,7 +119,7 @@
       ]
   });
   </script>  <!-- LOAD HIGHLIGHTER JS FILES -->
-<script src="../libraries/highlighters/highlight.js/highlight.pack.js"></script>
+<script src="./libraries/highlighters/highlight.js/highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 <!-- DONE LOADING HIGHLIGHTER JS FILES -->
  
